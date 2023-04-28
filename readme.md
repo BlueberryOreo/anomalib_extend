@@ -1,6 +1,6 @@
 # Anomalib-extend
 
-More AD methods and datasets.
+More AD methods.
 
 * Unsupervised
 * Supervised
