@@ -15,3 +15,19 @@ class AnomalousDataset(Dataset, ABC):
         self.transform = transform
         self._samples: DataFrame
 
+    def is_setup(self) -> bool:
+        return isinstance(self._samples, DataFrame)
+
+    def get_samples(self) -> DataFrame:
+        if not self.is_setup():
+            raise RuntimeError("Dataset is not set up yet. Call setup() first.")
+        return self._samples
+
+    def setup(self) -> None:
+        if not self.is_setup():
+            self._setup()
+        assert self.is_setup(), "setup() should set self._samples"
+
+    @abstractmethod
+    def _setup(self) -> DataFrame:
+        raise NotImplementedError
