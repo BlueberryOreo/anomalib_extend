@@ -6,6 +6,7 @@ from data.task_type import TaskType
 import numpy as np
 import pandas as pd
 import cv2
+from typing import Sequence
 
 # 数据增强工具
 import albumentations as A
@@ -23,6 +24,22 @@ class AnomalousDataset(Dataset, ABC):
         self.task = task
         self.transform = transform
         self._samples: DataFrame = None
+    
+    def __len__(self) -> int:
+        """Get length of the dataset"""
+        return len(self.samples)
+    
+    def subsample(self, indices: Sequence[int], inplace: bool = False) -> AnomalousDataset:
+        """Subsamples the dataset at the provided indices.
+
+        Args:
+            indices (Sequence[int]): Indices at which the dataset is to be subsampled.
+            inplace (bool): When true, the subsampling will be performed on the instance itself.
+        """
+        assert len(set(indices)) == len(indices), "No duplicates allowed in indices."
+        dataset = self if inplace else copy.deepcopy(self)
+        dataset.samples = self.samples.iloc[indices].reset_index(drop=True)
+        return dataset
 
     @property
     def is_setup(self) -> bool:
@@ -44,6 +61,16 @@ class AnomalousDataset(Dataset, ABC):
         """
         assert isinstance(samples, DataFrame), "samples must be a pandas.DataFrame, found {}".format(type(samples))
         self._samples = samples.sort_values(by="image_path", ignore_index=True)
+
+    @property
+    def has_normal(self) -> bool:
+        """Check if the dataset contains any normal samples."""
+        return 0 in list(self.samples.label_index)
+    
+    @property
+    def has_anomalous(self) -> bool:
+        """Check if the dataset contains any anomalous samples."""
+        return 1 in list(self.samples.label_index)
 
     def setup(self) -> None:
         if not self.is_setup():
