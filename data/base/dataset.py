@@ -1,8 +1,8 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmetho
 import copy
 
 from torch.utils.data.dataset import ConcatDataset, Dataset
-from data.task_type import TaskType
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import cv2
@@ -14,8 +14,17 @@ from pandas import DataFrame
 
 from torch.utils.data import Dataset
 
+from data.task_type import TaskType
 from data.utils import read_image
 from data.utils import masks_to_boxes
+
+_EXPECTED_COLUMNS_CLASSIFICATION = ["image_path", "split"]
+_EXPECTED_COLUMNS_SEGMENTATION = _EXPECTED_COLUMNS_CLASSIFICATION + ["mask_path"]
+_EXPECTED_COLUMNS_PERTASK = {
+    "classification": _EXPECTED_COLUMNS_CLASSIFICATION,
+    "segmentation": _EXPECTED_COLUMNS_SEGMENTATION,
+    "detection": _EXPECTED_COLUMNS_SEGMENTATION,
+}
 
 
 class AnomalousDataset(Dataset, ABC):
@@ -60,6 +69,12 @@ class AnomalousDataset(Dataset, ABC):
             samples (DataFrame): DataFrame with new samples.
         """
         assert isinstance(samples, DataFrame), "samples must be a pandas.DataFrame, found {}".format(type(samples))
+        expected_columns = _EXPECTED_COLUMNS_PERTASK[self.task]
+        assert all(
+            col in samples.columns for col in expected_columns
+        ), "samples must have (at least) columns {}, found {}".format(expected_columns, samples.columns)
+        assert samples["image_path"].apply(lambda p: Path(p).exists()).all(), "missing file path(s) in samples"
+
         self._samples = samples.sort_values(by="image_path", ignore_index=True)
 
     @property
