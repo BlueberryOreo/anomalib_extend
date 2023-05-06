@@ -1,6 +1,10 @@
 from abc import ABC, abstractmethod
+import copy
+
+from torch.utils.data.dataset import ConcatDataset, Dataset
 from data.task_type import TaskType
 import numpy as np
+import pandas as pd
 import cv2
 
 # 数据增强工具
@@ -20,16 +24,19 @@ class AnomalousDataset(Dataset, ABC):
         self.transform = transform
         self._samples: DataFrame = None
 
+    @property
     def is_setup(self) -> bool:
         return isinstance(self._samples, DataFrame)
 
-    def get_samples(self) -> DataFrame:
+    @property
+    def samples(self) -> DataFrame:
         """Get the samples dataframe."""
         if not self.is_setup():
             raise RuntimeError("Dataset is not set up yet. Call setup() first.")
         return self._samples
 
-    def set_samples(self, samples: DataFrame):
+    @samples.setter
+    def samples(self, samples: DataFrame):
         """Overwrite the samples with a new dataframe.
 
         Args:
@@ -83,7 +90,14 @@ class AnomalousDataset(Dataset, ABC):
             raise ValueError("Unknown task type: {}".format(self.task))
         
         return item
-
+    
+    def __add__(self, other: AnomalousDataset) -> AnomalousDataset:
+        assert isinstance(other, self.__class__), "Cannot concatenate datasets that are not of the same type."
+        assert self.is_setup, "Cannot concatenate uninitialized datasets. Call setup first."
+        assert other.is_setup, "Cannot concatenate uninitialized datasets. Call setup first."
+        dataset = copy.deepcopy(self)
+        dataset.samples = pd.concat([self.samples, other.samples], ignore_index=True)
+        return dataset
 
     @abstractmethod
     def _setup(self) -> DataFrame:
