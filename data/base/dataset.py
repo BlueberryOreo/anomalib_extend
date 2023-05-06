@@ -28,6 +28,13 @@ _EXPECTED_COLUMNS_PERTASK = {
 
 
 class AnomalousDataset(Dataset, ABC):
+    """Anomalib dataset.
+
+    Args:
+        task (str): Task type, either 'classification' or 'segmentation'
+        transform (A.Compose): Albumentations Compose object describing the transforms that are applied to the inputs.
+    """
+
     def __init__(self, task: TaskType, transform: A.Compose = None):
         super().__init__()
         self.task = task
@@ -52,6 +59,7 @@ class AnomalousDataset(Dataset, ABC):
 
     @property
     def is_setup(self) -> bool:
+        """Checks if setup() been called."""
         return isinstance(self._samples, DataFrame)
 
     @property
@@ -68,6 +76,7 @@ class AnomalousDataset(Dataset, ABC):
         Args:
             samples (DataFrame): DataFrame with new samples.
         """
+        # validate the passed samples by checking the
         assert isinstance(samples, DataFrame), "samples must be a pandas.DataFrame, found {}".format(type(samples))
         expected_columns = _EXPECTED_COLUMNS_PERTASK[self.task]
         assert all(
@@ -113,6 +122,8 @@ class AnomalousDataset(Dataset, ABC):
             transformed = self.transform(image=image)
             item["image"] = transformed["image"]
         elif self.task in (TaskType.DETECTION, TaskType.SIGMENTATION):
+            # Only Anomalous (1) images have masks in anomaly datasets
+            # Therefore, create empty mask for Normal (0) images.
             if label_index == 0:
                 mask = np.zeros(shape=image.shape[:2])
             else:
