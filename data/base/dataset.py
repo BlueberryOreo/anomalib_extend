@@ -1,4 +1,4 @@
-from abc import ABC, abstractmetho
+from abc import ABC, abstractmethod
 import copy
 
 from torch.utils.data.dataset import ConcatDataset, Dataset
