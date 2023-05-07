@@ -1,3 +1,8 @@
+"""Anomalib dataset base class."""
+
+# Copyright (C) 2022 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
 from abc import ABC, abstractmethod
 import copy
 

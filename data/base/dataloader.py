@@ -14,6 +14,7 @@ from data.utils import (
     random_split,
     split_by_label
 )
+from data.synthetic import SyntheticAnomalyDataset
 from dataset import AnomalibDataset
 
 logger = logging.getLogger(__name__)
@@ -89,7 +90,9 @@ class DataModule(LightningDataModule, ABC):
         if self.test_split_mode == TestSplitMode.FROM_DIR:
             self.test_data += normal_test_data
         elif self.test_split_mode == TestSplitMode.SYNTHETIC:
-            self.test_data = Synth
+            self.test_data = SyntheticAnomalyDataset.from_dataset(normal_test_data)
+        elif self.test_split_mode != TestSplitMode.NONE:
+            raise ValueError("Unsupported Test Split Mode: {}".format(self.test_split_mode))
     
     @property
     def is_setup(self) -> bool:
