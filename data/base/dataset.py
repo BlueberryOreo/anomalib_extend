@@ -27,7 +27,7 @@ _EXPECTED_COLUMNS_PERTASK = {
 }
 
 
-class AnomalousDataset(Dataset, ABC):
+class AnomalibDataset(Dataset, ABC):
     """Anomalib dataset.
 
     Args:
@@ -45,7 +45,7 @@ class AnomalousDataset(Dataset, ABC):
         """Get length of the dataset"""
         return len(self.samples)
     
-    def subsample(self, indices: Sequence[int], inplace: bool = False) -> AnomalousDataset:
+    def subsample(self, indices: Sequence[int], inplace: bool = False) -> AnomalibDataset:
         """Subsamples the dataset at the provided indices.
 
         Args:
@@ -144,7 +144,7 @@ class AnomalousDataset(Dataset, ABC):
         
         return item
     
-    def __add__(self, other: AnomalousDataset) -> AnomalousDataset:
+    def __add__(self, other: AnomalibDataset) -> AnomalibDataset:
         assert isinstance(other, self.__class__), "Cannot concatenate datasets that are not of the same type."
         assert self.is_setup, "Cannot concatenate uninitialized datasets. Call setup first."
         assert other.is_setup, "Cannot concatenate uninitialized datasets. Call setup first."
