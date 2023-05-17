@@ -1,3 +1,5 @@
+from .download import DownloadInfo, download_and_extract
+
 from .image import (
     read_image
 )
