@@ -3,8 +3,11 @@
 # Copyright (C) 2022 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
 import copy
+import logging
 
 from torch.utils.data.dataset import ConcatDataset, Dataset
 from pathlib import Path
@@ -30,6 +33,8 @@ _EXPECTED_COLUMNS_PERTASK = {
     "segmentation": _EXPECTED_COLUMNS_SEGMENTATION,
     "detection": _EXPECTED_COLUMNS_SEGMENTATION,
 }
+
+logger = logging.getLogger(__name__)
 
 
 class AnomalibDataset(Dataset, ABC):
