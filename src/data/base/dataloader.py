@@ -1,9 +1,15 @@
+"""Anomalib datamodule base class."""
+
+# Copyright (C) 2022 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+from __future__ import annotations
 
 import logging
 
 from typing import Dict, List, Any
 
-from abc import ABC, abstractmethod
+from abc import ABC
 from pytorch_lightning.utilities.types import EVAL_DATALOADERS, TRAIN_DATALOADERS
 from torch.utils.data import DataLoader, default_collate
 from typing import Optional
@@ -120,6 +126,23 @@ class DataModule(LightningDataModule, ABC):
         elif self.test_split_mode != TestSplitMode.NONE:
             raise ValueError("Unsupported Test Split Mode: {}".format(self.test_split_mode))
     
+    def _create_val_split(self):
+        """Obtain the validation set based on the settings in the config."""
+        if self.val_split_mode == ValSplitMode.FROM_TEST:
+            # randomly sampled from test set
+            self.test_data, self.val_data = random_split(
+                self.test_data, self.val_split_ratio, label_aware=True, seed=self.seed
+            )
+        elif self.val_split_mode == ValSplitMode.SAME_AS_TEST:
+            # equal to test set
+            self.val_data = self.test_data
+        elif self.val_split_mode == ValSplitMode.SYNTHETIC:
+            # converted from random training sample
+            self.train_data, normal_val_data = random_split(self.train_data, self.val_split_ratio)
+            self.val_data = SyntheticAnomalyDataset.from_dataset(normal_val_data)
+        elif self.val_split_mode != ValSplitMode.NONE:
+            raise ValueError(f"Unknown validation split mode: {self.val_split_mode}")
+    
     @property
     def is_setup(self) -> bool:
         """Check if setup() has been called."""
@@ -142,6 +165,16 @@ class DataModule(LightningDataModule, ABC):
         """Get validation dataloader."""
         return DataLoader(
             dataset=self.val_data,
+            shuffle=False,
+            batch_size=self.eval_batch_size,
+            num_workers=self.num_workers,
+            collate_fn=collate_fn
+        )
+    
+    def test_dataloader(self) -> EVAL_DATALOADERS:
+        """Get test dataloader."""
+        return DataLoader(
+            dataset=self.test_data,
             shuffle=False,
             batch_size=self.eval_batch_size,
             num_workers=self.num_workers,
