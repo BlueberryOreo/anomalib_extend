@@ -6,6 +6,7 @@ from .boxes import(
     masks_to_boxes
 )
 from .split import(
+    Split,
     TestSplitMode,
     ValSplitMode,
     random_split,
