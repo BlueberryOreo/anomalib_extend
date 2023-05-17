@@ -52,7 +52,7 @@ def collate_fn(batch: List) -> Dict[str, Any]:
     return default_collate(batch)
 
 
-class DataModule(LightningDataModule, ABC):
+class AnomalibDataModule(LightningDataModule, ABC):
     def __init__(
             self,
             train_batch_size: int,
