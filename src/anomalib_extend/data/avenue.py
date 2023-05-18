@@ -26,9 +26,9 @@ import scipy.io
 from pandas import DataFrame
 from torch import Tensor
 
-from src.data.base import AnomalibVideoDataModule, AnomalibVideoDataset
-from src.data.task_type import TaskType
-from src.data.utils import (
+from anomalib_extend.data.base import AnomalibVideoDataModule, AnomalibVideoDataset
+from anomalib_extend.data.task_type import TaskType
+from anomalib_extend.data.utils import (
     DownloadInfo,
     InputNormalizationMethod,
     Split,
@@ -36,7 +36,7 @@ from src.data.utils import (
     download_and_extract,
     get_transforms,
 )
-from src.data.utils.video import ClipsIndexer
+from anomalib_extend.data.utils.video import ClipsIndexer
 
 logger = logging.getLogger(__name__)
 
