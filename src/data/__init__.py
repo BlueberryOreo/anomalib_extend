@@ -8,8 +8,18 @@ from typing import Union
 
 from omegaconf import DictConfig, ListConfig
 
+from .avenue import Avenue
 from .base import AnomalibDataModule, AnomalibDataset
+from .btech import BTech
+from .folder import Folder
+from .inference import InferenceDataset
 from .mvtec import MVTec
+from .task_type import TaskType
+from .ucsd_ped import UCSDped
+from .visa import Visa
+
+logger = logging.getLogger(__name__)
+
 
 def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
     """Get Anomaly Datamodule.
@@ -149,3 +159,17 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
         )
 
     return datamodule
+
+
+__all__ = [
+    "AnomalibDataset",
+    "AnomalibDataModule",
+    "get_datamodule",
+    "BTech",
+    "Folder",
+    "InferenceDataset",
+    "MVTec",
+    "Avenue",
+    "UCSDped",
+    "TaskType",
+]
