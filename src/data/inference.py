@@ -9,7 +9,7 @@ from typing import Any, Optional, Tuple, Union
 import albumentations as A
 from torch.utils.data.dataset import Dataset
 
-from anomalib.data.utils import get_image_filenames, get_transforms, read_image
+from src.data.utils import get_image_filenames, get_transforms, read_image
 
 
 class InferenceDataset(Dataset):
