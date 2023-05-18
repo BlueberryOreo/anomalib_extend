@@ -34,6 +34,9 @@ _EXPECTED_COLUMNS_PERTASK = {
     "detection": _EXPECTED_COLUMNS_SEGMENTATION,
 }
 
+FEW_SHOT = "few_short"
+FULL_SHOT = "full_shot"
+
 logger = logging.getLogger(__name__)
 
 
@@ -45,10 +48,11 @@ class AnomalibDataset(Dataset, ABC):
         transform (A.Compose): Albumentations Compose object describing the transforms that are applied to the inputs.
     """
 
-    def __init__(self, task: TaskType, transform: A.Compose = None):
+    def __init__(self, task: TaskType, transform: A.Compose = None, shot_type: str = FULL_SHOT):
         super().__init__()
         self.task = task
         self.transform = transform
+        self.shot_type = shot_type
         self._samples: DataFrame = None
     
     def __len__(self) -> int:
@@ -105,10 +109,17 @@ class AnomalibDataset(Dataset, ABC):
     def has_anomalous(self) -> bool:
         """Check if the dataset contains any anomalous samples."""
         return 1 in list(self.samples.label_index)
+    
+    def enlarge_dataset(self) -> None:
+        """Enlarge the dataset by transform the images. Used in few shot condition."""
+        raise NotImplementedError("The condition is few shot but the enlarge_dataset() method is not implemented.")
 
     def setup(self) -> None:
         if not self.is_setup():
             self._setup()
+            if self.shot_type == FEW_SHOT:
+                # do something to enlarge the dataset
+                self.enlarge_dataset()
         assert self.is_setup(), "setup() should set self._samples"
 
     def __getitem__(self, index: int):
