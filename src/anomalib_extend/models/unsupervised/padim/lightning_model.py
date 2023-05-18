@@ -15,7 +15,7 @@ from pytorch_lightning.utilities.cli import MODEL_REGISTRY
 from torch import Tensor
 
 from anomalib_extend.models.components import AnomalyModule
-from anomalib_extend.models.padim.torch_model import PadimModel
+from anomalib_extend.models.unsupervised.padim.torch_model import PadimModel
 
 logger = logging.getLogger(__name__)
 

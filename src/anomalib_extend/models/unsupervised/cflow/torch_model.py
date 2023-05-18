@@ -9,8 +9,8 @@ import einops
 import torch
 from torch import nn
 
-from anomalib_extend.models.cflow.anomaly_map import AnomalyMapGenerator
-from anomalib_extend.models.cflow.utils import cflow_head, get_logp, positional_encoding_2d
+from anomalib_extend.models.unsupervised.cflow.anomaly_map import AnomalyMapGenerator
+from anomalib_extend.models.unsupervised.cflow.utils import cflow_head, get_logp, positional_encoding_2d
 from anomalib_extend.models.components import FeatureExtractor
 
 

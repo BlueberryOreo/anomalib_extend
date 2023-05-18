@@ -12,8 +12,8 @@ from pytorch_lightning.utilities.cli import MODEL_REGISTRY
 from torch import optim
 
 from anomalib_extend.models.components import AnomalyModule
-from anomalib_extend.models.fastflow.loss import FastflowLoss
-from anomalib_extend.models.fastflow.torch_model import FastflowModel
+from anomalib_extend.models.unsupervised.fastflow.loss import FastflowLoss
+from anomalib_extend.models.unsupervised.fastflow.torch_model import FastflowModel
 
 
 @MODEL_REGISTRY

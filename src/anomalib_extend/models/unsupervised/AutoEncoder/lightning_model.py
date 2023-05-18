@@ -7,8 +7,8 @@ from pytorch_lightning.utilities.cli import MODEL_REGISTRY
 from torch import Tensor, nn
 from typing import Union, Optional
 from anomalib_extend.models.components import AnomalyModule
-from anomalib_extend.models.AutoEncoder.torch_model import AutoEncoderModel
-from anomalib_extend.models.AutoEncoder.loss import AutoEncoderLoss
+from anomalib_extend.models.unsupervised.AutoEncoder.torch_model import AutoEncoderModel
+from anomalib_extend.models.unsupervised.AutoEncoder.loss import AutoEncoderLoss
 
 logger = logging.getLogger(__name__)
 class AutoEncoder(AnomalyModule):
