@@ -3,7 +3,7 @@ from typing import List, Optional, Tuple
 import torch
 from torch import Tensor
 
-from utils.cv import connected_components_gpu, connected_components_cpu
+from src.utils.cv import connected_components_gpu, connected_components_cpu
 
 
 def masks_to_boxes(masks: Tensor, anomaly_maps: Optional[Tensor] = None) -> Tuple[List[Tensor], List[Tensor]]:
