@@ -32,6 +32,7 @@ from pandas import DataFrame
 
 from data.base import AnomalibDataModule, AnomalibDataset
 from data.task_type import TaskType
+from data.shot_type import ShotType
 from data.utils import (
     DownloadInfo,
     InputNormalizationMethod,
@@ -162,8 +163,9 @@ class MVTecDataset(AnomalibDataset):
         root: str,
         category: str,
         split: Optional[Union[Split, str]] = None,
+        shot_type: Optional[ShotType] = ShotType.FULL_SHOT
     ) -> None:
-        super().__init__(task, transform)
+        super().__init__(task, transform, shot_type)
 
         self.root_category = Path(root) / Path(category)
         self.split = split
@@ -211,6 +213,7 @@ class MVTec(AnomalibDataModule):
         eval_batch_size: int = 32,
         num_workers: int = 8,
         task: TaskType = TaskType.SIGMENTATION,
+        shot_type: ShotType = ShotType.FULL_SHOT,
         transform_config_train: Optional[Union[str, A.Compose]] = None,
         transform_config_eval: Optional[Union[str, A.Compose]] = None,
         test_split_mode: TestSplitMode = TestSplitMode.FROM_DIR,
@@ -247,11 +250,11 @@ class MVTec(AnomalibDataModule):
         )
 
         self.train_data = MVTecDataset(
-            task=task, transform=transform_train, split=Split.TRAIN, root=root, category=category
+            task=task, transform=transform_train, split=Split.TRAIN, root=root, category=category, shot_type=shot_type
         )
 
         self.test_data = MVTecDataset(
-            task=task, 
+            task=task, shot_type=shot_type
         )
     
     def prepare_data(self) -> None:

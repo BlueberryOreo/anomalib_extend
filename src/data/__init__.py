@@ -15,6 +15,7 @@ from .folder import Folder
 from .inference import InferenceDataset
 from .mvtec import MVTec
 from .task_type import TaskType
+from .shot_type import ShotType
 from .ucsd_ped import UCSDped
 from .visa import Visa
 
@@ -50,6 +51,7 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
             eval_batch_size=config.dataset.eval_batch_size,
             num_workers=config.dataset.num_workers,
             task=config.dataset.task,
+            shot_type=config.shot_type,
             transform_config_train=config.dataset.transform_config.train,
             transform_config_eval=config.dataset.transform_config.eval,
             test_split_mode=config.dataset.test_split_mode,
@@ -68,6 +70,7 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
             eval_batch_size=config.dataset.eval_batch_size,
             num_workers=config.dataset.num_workers,
             task=config.dataset.task,
+            shot_type=config.shot_type,
             transform_config_train=config.dataset.transform_config.train,
             transform_config_eval=config.dataset.transform_config.eval,
             test_split_mode=config.dataset.test_split_mode,
@@ -81,6 +84,7 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
             normal_dir=config.dataset.normal_dir,
             abnormal_dir=config.dataset.abnormal_dir,
             task=config.dataset.task,
+            shot_type=config.shot_type,
             normal_test_dir=config.dataset.normal_test_dir,
             mask_dir=config.dataset.mask_dir,
             extensions=config.dataset.extensions,
@@ -102,6 +106,7 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
             root=config.dataset.path,
             category=config.dataset.category,
             task=config.dataset.task,
+            shot_type=config.shot_type,
             clip_length_in_frames=config.dataset.clip_length_in_frames,
             frames_between_clips=config.dataset.frames_between_clips,
             image_size=(config.dataset.image_size[0], config.dataset.image_size[1]),
@@ -120,6 +125,7 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
             root=config.dataset.path,
             gt_dir=config.dataset.gt_dir,
             task=config.dataset.task,
+            shot_type=config.shot_type,
             clip_length_in_frames=config.dataset.clip_length_in_frames,
             frames_between_clips=config.dataset.frames_between_clips,
             image_size=(config.dataset.image_size[0], config.dataset.image_size[1]),
@@ -144,6 +150,7 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
             eval_batch_size=config.dataset.eval_batch_size,
             num_workers=config.dataset.num_workers,
             task=config.dataset.task,
+            shot_type=config.shot_type,
             transform_config_train=config.dataset.transform_config.train,
             transform_config_eval=config.dataset.transform_config.eval,
             test_split_mode=config.dataset.test_split_mode,
