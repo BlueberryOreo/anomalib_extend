@@ -23,6 +23,7 @@ from pandas import DataFrame
 from torch.utils.data import Dataset
 
 from data.task_type import TaskType
+from data.shot_type import ShotType
 from data.utils import read_image
 from data.utils import masks_to_boxes
 
@@ -33,9 +34,6 @@ _EXPECTED_COLUMNS_PERTASK = {
     "segmentation": _EXPECTED_COLUMNS_SEGMENTATION,
     "detection": _EXPECTED_COLUMNS_SEGMENTATION,
 }
-
-FEW_SHOT = "few_short"
-FULL_SHOT = "full_shot"
 
 logger = logging.getLogger(__name__)
 
@@ -48,7 +46,7 @@ class AnomalibDataset(Dataset, ABC):
         transform (A.Compose): Albumentations Compose object describing the transforms that are applied to the inputs.
     """
 
-    def __init__(self, task: TaskType, transform: A.Compose = None, shot_type: str = FULL_SHOT):
+    def __init__(self, task: TaskType, transform: A.Compose = None, shot_type: str = ShotType.FULL_SHOT):
         super().__init__()
         self.task = task
         self.transform = transform
@@ -117,7 +115,7 @@ class AnomalibDataset(Dataset, ABC):
     def setup(self) -> None:
         if not self.is_setup():
             self._setup()
-            if self.shot_type == FEW_SHOT:
+            if self.shot_type == ShotType.FEW_SHOT:
                 # do something to enlarge the dataset
                 self.enlarge_dataset()
         assert self.is_setup(), "setup() should set self._samples"
