@@ -1,12 +1,14 @@
+"""Task type enum."""
+
+# Copyright (C) 2022 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
 from enum import Enum
 
 
-class TaskType(Enum):
+class TaskType(str, Enum):
+    """Task type used when generating predictions on the dataset."""
+
     CLASSIFICATION = "classification"
-    SIGMENTATION = "sigmentation"
     DETECTION = "detection"
-
-
-class DataType(Enum):
-    FEW_SHOT = "few_shot"
-    FULL_SHOT = "full_shot"
+    SEGMENTATION = "segmentation"
