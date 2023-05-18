@@ -30,10 +30,10 @@ from typing import Optional, Sequence, Tuple, Union
 import albumentations as A
 from pandas import DataFrame
 
-from data.base import AnomalibDataModule, AnomalibDataset
-from data.task_type import TaskType
-from data.shot_type import ShotType
-from data.utils import (
+from src.data.base import AnomalibDataModule, AnomalibDataset
+from src.data.task_type import TaskType
+from src.data.shot_type import ShotType
+from src.data.utils import (
     DownloadInfo,
     InputNormalizationMethod,
     Split,
@@ -212,7 +212,7 @@ class MVTec(AnomalibDataModule):
         train_batch_size: int = 32,
         eval_batch_size: int = 32,
         num_workers: int = 8,
-        task: TaskType = TaskType.SIGMENTATION,
+        task: TaskType = TaskType.SEGMENTATION,
         shot_type: ShotType = ShotType.FULL_SHOT,
         transform_config_train: Optional[Union[str, A.Compose]] = None,
         transform_config_eval: Optional[Union[str, A.Compose]] = None,

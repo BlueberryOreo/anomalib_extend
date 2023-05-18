@@ -17,9 +17,10 @@ from timm.models.cait import Cait
 from timm.models.vision_transformer import VisionTransformer
 from torch import Tensor, nn
 
-from anomalib.models.components.freia.framework import SequenceINN
-from anomalib.models.components.freia.modules import AllInOneBlock
-from anomalib.models.fastflow.anomaly_map import AnomalyMapGenerator
+from FrEIA.framework import SequenceINN
+from FrEIA.modules import AllInOneBlock
+# from anomalib.models.fastflow.anomaly_map import AnomalyMapGenerator
+from src.models.unsupervised.fastflow.anomaly_map import AnomalyMapGenerator
 
 
 def subnet_conv_func(kernel_size: int, hidden_ratio: float) -> Callable:

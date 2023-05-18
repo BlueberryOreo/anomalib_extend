@@ -17,14 +17,14 @@ from typing import Optional
 from pytorch_lightning import LightningDataModule
 from pandas import DataFrame
 
-from data.utils import (
+from src.data.utils import (
     TestSplitMode,
     ValSplitMode,
     random_split,
     split_by_label
 )
-from data.synthetic import SyntheticAnomalyDataset
-from data.base.dataset import AnomalibDataset
+from src.data.synthetic import SyntheticAnomalyDataset
+from src.data.base.dataset import AnomalibDataset
 
 logger = logging.getLogger(__name__)
 

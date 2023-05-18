@@ -5,7 +5,7 @@ from typing import Union, Tuple
 from pathlib import Path
 
 
-def get_image_height_and_width(image_size: Union[int, Tuple[int, int]]) -> Tuple(int, int):
+def get_image_height_and_width(image_size: Union[int, Tuple[int, int]]) -> Tuple[int, int]:
     if isinstance(image_size, int):
         return (image_size, image_size)
     elif isinstance(image_size, tuple):
