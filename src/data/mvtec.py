@@ -212,7 +212,7 @@ class MVTec(AnomalibDataModule):
         train_batch_size: int = 32,
         eval_batch_size: int = 32,
         num_workers: int = 8,
-        task: TaskType = TaskType.SIGMENTATION,
+        task: TaskType = TaskType.SEGMENTATION,
         shot_type: ShotType = ShotType.FULL_SHOT,
         transform_config_train: Optional[Union[str, A.Compose]] = None,
         transform_config_eval: Optional[Union[str, A.Compose]] = None,
