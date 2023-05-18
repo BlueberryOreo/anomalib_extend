@@ -1,7 +1,7 @@
 dataset:
   name: mvtec #options: [mvtec, btech, folder]
   format: mvtec
-  path: ./datasets/MVTec
+  path: E:\Progress\AnomalyDetection\dataset\MVTec
   category: bottle
   task: classification
   image_size: 32
