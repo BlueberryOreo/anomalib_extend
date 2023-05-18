@@ -15,11 +15,11 @@ import warnings
 from pytorch_lightning import Trainer, seed_everything
 
 from config import get_configurable_parameters
-from src.data import get_datamodule
-from src.data.utils import TestSplitMode
-from src.models import get_model
-from src.utils.callbacks import LoadModelCallback, get_callbacks
-from src.utils.loggers import configure_logger, get_experiment_logger
+from anomalib_extend.src.data import get_datamodule
+from anomalib_extend.src.data.utils import TestSplitMode
+from anomalib_extend.src.models import get_model
+from anomalib_extend.src.utils.callbacks import LoadModelCallback, get_callbacks
+from anomalib_extend.src.utils.loggers import configure_logger, get_experiment_logger
 
 logger = logging.getLogger("anomalib_extend")
 
@@ -31,9 +31,9 @@ def get_args() -> Namespace:
         Namespace: List of arguments.
     """
     parser = ArgumentParser()
-    parser.add_argument("--model", type=str, default="pca", help="Name of the algorithm to train/test")
+    parser.add_argument("--model", type=str, default="patchcore", help="Name of the algorithm to train/test")
     parser.add_argument("--config", type=str, 
-                        default=".\\src\\models\\unsupervised\\pca\\config.yaml",
+                        default="E:\\Progress\\AnomalyDetection\\anomalib\\anomalib\\models\\patchcore\\config.yaml",
                           help="Path to a model config file")
     parser.add_argument("--log-level", type=str, default="INFO", help="<DEBUG, INFO, WARNING, ERROR>")
 
