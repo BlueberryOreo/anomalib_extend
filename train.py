@@ -34,7 +34,6 @@ def get_args() -> Namespace:
     parser.add_argument("--model", type=str, default="patchcore", help="Name of the algorithm to train/test")
     parser.add_argument("--config", type=str, default=False, help="Path to a model config file")
     parser.add_argument("--log-level", type=str, default="INFO", help="<DEBUG, INFO, WARNING, ERROR>")
-    parser.add_argument("--shot-type", type=str, default="full_shot", help="<full_shot, few_shot>")
 
     args = parser.parse_args()
     return args
