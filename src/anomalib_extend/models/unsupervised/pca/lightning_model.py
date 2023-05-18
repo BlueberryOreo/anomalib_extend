@@ -1,9 +1,11 @@
 import torch
 import logging
+
 from .torch_model import PcaModel
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.models.components import AnomalyModule
 from typing import Dict, Union, List
 from torch import Tensor
+
 logger = logging.getLogger(__name__)
 
 class Pca(AnomalyModule):

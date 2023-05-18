@@ -7,9 +7,9 @@ from typing import Dict, List, Optional, Tuple
 
 from torch import Tensor, nn
 
-from anomalib.models.components import FeatureExtractor
-from anomalib.models.stfpm.anomaly_map import AnomalyMapGenerator
-from anomalib.pre_processing import Tiler
+from anomalib_extend.models.components import FeatureExtractor
+from anomalib_extend.models.stfpm.anomaly_map import AnomalyMapGenerator
+from anomalib_extend.pre_processing import Tiler
 
 
 class STFPMModel(nn.Module):

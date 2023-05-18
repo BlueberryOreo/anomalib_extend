@@ -10,10 +10,10 @@ import torch
 import torch.nn.functional as F
 from torch import Tensor, nn
 
-from anomalib.models.components import FeatureExtractor, MultiVariateGaussian
-from anomalib.models.components.feature_extractors import dryrun_find_featuremap_dims
-from anomalib.models.padim.anomaly_map import AnomalyMapGenerator
-from anomalib.pre_processing import Tiler
+from anomalib_extend.models.components import FeatureExtractor, MultiVariateGaussian
+from anomalib_extend.models.components.feature_extractors import dryrun_find_featuremap_dims
+from anomalib_extend.models.padim.anomaly_map import AnomalyMapGenerator
+from anomalib_extend.pre_processing import Tiler
 
 # defaults from the paper
 _N_FEATURES_DEFAULTS = {

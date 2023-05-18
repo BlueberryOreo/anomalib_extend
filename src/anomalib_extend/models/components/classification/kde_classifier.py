@@ -11,7 +11,7 @@ from typing import Optional, Tuple
 import torch
 from torch import Tensor, nn
 
-from anomalib.models.components import PCA, GaussianKDE
+from anomalib_extend.models.components import PCA, GaussianKDE
 
 logger = logging.getLogger(__name__)
 

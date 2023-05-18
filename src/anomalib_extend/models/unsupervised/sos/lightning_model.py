@@ -11,7 +11,7 @@ from omegaconf import DictConfig, ListConfig
 from pytorch_lightning.utilities.cli import MODEL_REGISTRY
 from torch import Tensor
 
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.models.components import AnomalyModule
 
 from .torch_model import SosModel
 

@@ -4,7 +4,7 @@ import torch
 import torch.nn.functional as F
 from torch import Tensor, nn
 from pyod.models.ocsvm import OCSVM
-from anomalib.models.components import PCA, DynamicBufferModule, FeatureExtractor
+from anomalib_extend.models.components import PCA, DynamicBufferModule, FeatureExtractor
 
 
 class ocsvmModel(nn.Module):

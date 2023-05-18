@@ -11,7 +11,7 @@ import torch
 import torch.nn.functional as F
 from torch import Tensor
 
-from anomalib.models.components.dimensionality_reduction import SparseRandomProjection
+from anomalib_extend.models.components.dimensionality_reduction import SparseRandomProjection
 
 
 class KCenterGreedy:

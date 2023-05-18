@@ -11,7 +11,7 @@ import torch
 import torch.nn.functional as F
 from torch import Tensor, nn
 
-from anomalib.models.components import PCA, FeatureExtractor, GaussianKDE
+from anomalib_extend.models.components import PCA, FeatureExtractor, GaussianKDE
 
 logger = logging.getLogger(__name__)
 

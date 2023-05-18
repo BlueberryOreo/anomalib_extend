@@ -3,7 +3,7 @@ from typing import List
 import numpy as np
 import torch
 import torch.nn.functional as F
-from anomalib.models.components import DynamicBufferModule, FeatureExtractor
+from anomalib_extend.models.components import DynamicBufferModule, FeatureExtractor
 
 class ThreeSigma_Model(DynamicBufferModule):
     def __init__(self,

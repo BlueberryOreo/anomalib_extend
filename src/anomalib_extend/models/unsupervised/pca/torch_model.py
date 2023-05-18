@@ -3,7 +3,7 @@ from torch import Tensor, nn
 import torch.nn.functional as F
 import numpy as np
 import math
-from anomalib.models.components import FeatureExtractor
+from anomalib_extend.models.components import FeatureExtractor
 from sklearn.decomposition import PCA
 from typing import Dict
 

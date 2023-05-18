@@ -14,9 +14,9 @@ from pytorch_lightning.callbacks import EarlyStopping
 from pytorch_lightning.utilities.cli import MODEL_REGISTRY
 from torch import optim
 
-from anomalib.models.components import AnomalyModule
-from anomalib.models.stfpm.loss import STFPMLoss
-from anomalib.models.stfpm.torch_model import STFPMModel
+from anomalib_extend.models.components import AnomalyModule
+from anomalib_extend.models.stfpm.loss import STFPMLoss
+from anomalib_extend.models.stfpm.torch_model import STFPMModel
 
 __all__ = ["StfpmLightning"]
 
