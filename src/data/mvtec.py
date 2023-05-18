@@ -54,6 +54,7 @@ DOWNLOAD_INFO = DownloadInfo(
 )
 
 
+
 def make_mvtec_dataset(
     root: Union[str, Path], split: Optional[Union[Split, str]] = None, extensions: Optional[Sequence[str]] = None
 ) -> DataFrame:
@@ -160,14 +161,14 @@ class MVTecDataset(AnomalibDataset):
         transform: A.Compose,
         root: str,
         category: str,
-        split: Optional[Union[Split, str]] = None
+        split: Optional[Union[Split, str]] = None,
     ) -> None:
         super().__init__(task, transform)
 
         self.root_category = Path(root) / Path(category)
         self.split = split
     
-    def _setup(self) -> DataFrame:
+    def _setup(self):
         self.samples = make_mvtec_dataset(self.root_category, split=self.split, extensions=IMG_EXTENSIONS)
 
 
