@@ -8,6 +8,7 @@ dataset:
   train_batch_size: 8
   test_batch_size: 8
   num_workers: 0
+  shot_type: full_shot
   transform_config:
     train: null
     val: null
