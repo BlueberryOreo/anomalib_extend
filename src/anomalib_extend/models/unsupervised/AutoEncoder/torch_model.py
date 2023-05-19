@@ -1,7 +1,7 @@
 from torch import nn, Tensor
 import torch
 import torch.nn.functional as F
-from anomalib.models.components import FeatureExtractor
+from anomalib_extend.models.components import FeatureExtractor
 
 class AutoEncoderModel(nn.Module):
     def __init__(self,

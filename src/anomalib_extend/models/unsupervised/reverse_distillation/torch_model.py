@@ -7,13 +7,13 @@ from typing import List, Optional, Tuple, Union
 
 from torch import Tensor, nn
 
-from anomalib.models.components import FeatureExtractor
-from anomalib.models.reverse_distillation.anomaly_map import AnomalyMapGenerator
-from anomalib.models.reverse_distillation.components import (
+from anomalib_extend.models.components import FeatureExtractor
+from anomalib_extend.models.unsupervised.reverse_distillation.anomaly_map import AnomalyMapGenerator
+from anomalib_extend.models.unsupervised.reverse_distillation.components import (
     get_bottleneck_layer,
     get_decoder,
 )
-from anomalib.pre_processing import Tiler
+from anomalib_extend.pre_processing import Tiler
 
 
 class ReverseDistillationModel(nn.Module):

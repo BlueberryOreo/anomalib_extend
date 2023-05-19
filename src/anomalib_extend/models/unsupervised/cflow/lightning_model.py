@@ -16,9 +16,9 @@ from pytorch_lightning.callbacks import EarlyStopping
 from pytorch_lightning.utilities.cli import MODEL_REGISTRY
 from torch import optim
 
-from anomalib.models.cflow.torch_model import CflowModel
-from anomalib.models.cflow.utils import get_logp, positional_encoding_2d
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.models.unsupervised.cflow.torch_model import CflowModel
+from anomalib_extend.models.unsupervised.cflow.utils import get_logp, positional_encoding_2d
+from anomalib_extend.models.components import AnomalyModule
 
 __all__ = ["Cflow", "CflowLightning"]
 

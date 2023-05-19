@@ -15,8 +15,8 @@ from pytorch_lightning.callbacks import EarlyStopping
 from pytorch_lightning.utilities.cli import MODEL_REGISTRY
 from torch import Tensor, optim
 
-from anomalib.models.components import AnomalyModule
-from anomalib.models.ganomaly.loss import DiscriminatorLoss, GeneratorLoss
+from anomalib_extend.models.components import AnomalyModule
+from anomalib_extend.models.unsupervised.ganomaly.loss import DiscriminatorLoss, GeneratorLoss
 
 from .torch_model import GanomalyModel
 

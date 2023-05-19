@@ -14,7 +14,7 @@ from typing import Tuple, Union
 import torch
 from torch import Tensor, nn
 
-from anomalib.models.components.layers import SSPCAB
+from anomalib_extend.models.components.layers import SSPCAB
 
 
 class DraemModel(nn.Module):

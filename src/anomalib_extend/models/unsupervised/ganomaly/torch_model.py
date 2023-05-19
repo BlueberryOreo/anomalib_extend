@@ -15,7 +15,7 @@ from typing import Tuple, Union
 import torch
 from torch import Tensor, nn
 
-from anomalib.data.utils.image import pad_nextpow2
+from anomalib_extend.data.utils.image import pad_nextpow2
 
 
 class Encoder(nn.Module):

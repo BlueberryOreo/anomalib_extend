@@ -9,13 +9,13 @@ import torch
 import torch.nn.functional as F
 from torch import Tensor, nn
 
-from anomalib.models.components import (
+from anomalib_extend.models.components import (
     DynamicBufferModule,
     FeatureExtractor,
     KCenterGreedy,
 )
-from anomalib.models.patchcore.anomaly_map import AnomalyMapGenerator
-from anomalib.pre_processing import Tiler
+from anomalib_extend.models.unsupervised.patchcore.anomaly_map import AnomalyMapGenerator
+from anomalib_extend.pre_processing import Tiler
 
 
 class PatchcoreModel(DynamicBufferModule, nn.Module):

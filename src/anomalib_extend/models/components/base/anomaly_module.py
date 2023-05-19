@@ -14,9 +14,9 @@ from pytorch_lightning.callbacks.base import Callback
 from torch import Tensor, nn
 from torchmetrics import Metric
 
-from anomalib.data.utils import boxes_to_anomaly_maps, boxes_to_masks, masks_to_boxes
-from anomalib.post_processing import ThresholdMethod
-from anomalib.utils.metrics import (
+from anomalib_extend.data.utils import boxes_to_anomaly_maps, boxes_to_masks, masks_to_boxes
+from anomalib_extend.post_processing import ThresholdMethod
+from anomalib_extend.utils.metrics import (
     AnomalibMetricCollection,
     AnomalyScoreDistribution,
     AnomalyScoreThreshold,

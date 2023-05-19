@@ -1,5 +1,5 @@
 from torch import nn
-from anomalib.models.components import FeatureExtractor
+from anomalib_extend.models.components import FeatureExtractor
 from pyod.models.sos import SOS
 import torch
 import torch.nn.functional as F
