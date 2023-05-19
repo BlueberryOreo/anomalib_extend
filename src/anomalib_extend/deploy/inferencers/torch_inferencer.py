@@ -15,10 +15,10 @@ import torch
 from omegaconf import DictConfig
 from torch import Tensor, nn
 
-from anomalib.data import TaskType
-from anomalib.data.utils.boxes import masks_to_boxes
+from anomalib_extend.data import TaskType
+from anomalib_extend.data.utils.boxes import masks_to_boxes
 
-from .base_inferencer import Inferencer
+from anomalib_extend.deploy.inferencers.base_inferencer import Inferencer
 
 
 class TorchInferencer(Inferencer):

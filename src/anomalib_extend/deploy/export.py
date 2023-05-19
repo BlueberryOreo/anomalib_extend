@@ -16,8 +16,8 @@ import torch
 from torch import Tensor
 from torch.types import Number
 
-from anomalib.data.task_type import TaskType
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.data.task_type import TaskType
+from anomalib_extend.models.components import AnomalyModule
 
 
 class ExportMode(str, Enum):

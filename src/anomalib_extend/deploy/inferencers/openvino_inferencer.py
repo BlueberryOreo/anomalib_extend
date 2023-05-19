@@ -14,9 +14,9 @@ import cv2
 import numpy as np
 from omegaconf import DictConfig
 
-from anomalib.data import TaskType
+from anomalib_extend.data import TaskType
 
-from .base_inferencer import Inferencer
+from anomalib_extend.deploy.inferencers.base_inferencer import Inferencer
 
 if find_spec("openvino") is not None:
     from openvino.inference_engine import (  # type: ignore  # pylint: disable=no-name-in-module
