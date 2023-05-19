@@ -16,9 +16,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from skimage.segmentation import mark_boundaries
 
-from anomalib.data import TaskType
-from anomalib.data.utils import read_image
-from anomalib.post_processing.post_process import (
+from anomalib_extend.data import TaskType
+from anomalib_extend.data.utils import read_image
+from anomalib_extend.post_processing.post_process import (
     add_anomalous_label,
     add_normal_label,
     draw_boxes,
