@@ -21,9 +21,9 @@ from pandas.core.frame import DataFrame
 from pytorch_lightning.utilities.cli import DATAMODULE_REGISTRY
 from tqdm import tqdm
 
-from src.data.base import AnomalibDataModule, AnomalibDataset
-from src.data.task_type import TaskType
-from src.data.utils import (
+from anomalib_extend.data.base import AnomalibDataModule, AnomalibDataset
+from anomalib_extend.data.task_type import TaskType
+from anomalib_extend.data.utils import (
     DownloadInfo,
     InputNormalizationMethod,
     Split,

@@ -8,7 +8,7 @@ from typing import List, Optional, Tuple
 import torch
 from torch import Tensor
 
-from src.utils.cv import connected_components_cpu, connected_components_gpu
+from anomalib_extend.utils.cv import connected_components_cpu, connected_components_gpu
 
 
 def masks_to_boxes(masks: Tensor, anomaly_maps: Optional[Tensor] = None) -> Tuple[List[Tensor], List[Tensor]]:

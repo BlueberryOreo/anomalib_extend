@@ -22,10 +22,10 @@ from pandas import DataFrame
 
 from torch.utils.data import Dataset
 
-from src.data.task_type import TaskType
-from src.data.shot_type import ShotType
-from src.data.utils import read_image
-from src.data.utils import masks_to_boxes
+from anomalib_extend.data.task_type import TaskType
+from anomalib_extend.data.shot_type import ShotType
+from anomalib_extend.data.utils import read_image
+from anomalib_extend.data.utils import masks_to_boxes
 
 _EXPECTED_COLUMNS_CLASSIFICATION = ["image_path", "split"]
 _EXPECTED_COLUMNS_SEGMENTATION = _EXPECTED_COLUMNS_CLASSIFICATION + ["mask_path"]

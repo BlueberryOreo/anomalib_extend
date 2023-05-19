@@ -30,10 +30,10 @@ from typing import Optional, Sequence, Tuple, Union
 import albumentations as A
 from pandas import DataFrame
 
-from src.data.base import AnomalibDataModule, AnomalibDataset
-from src.data.task_type import TaskType
-from src.data.shot_type import ShotType
-from src.data.utils import (
+from anomalib_extend.data.base import AnomalibDataModule, AnomalibDataset
+from anomalib_extend.data.task_type import TaskType
+from anomalib_extend.data.shot_type import ShotType
+from anomalib_extend.data.utils import (
     DownloadInfo,
     InputNormalizationMethod,
     Split,

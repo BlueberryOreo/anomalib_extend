@@ -10,7 +10,7 @@ from typing import Optional, Tuple, Union
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
-from src.data.utils.image import get_image_height_and_width
+from anomalib_extend.data.utils.image import get_image_height_and_width
 
 logger = logging.getLogger(__name__)
 

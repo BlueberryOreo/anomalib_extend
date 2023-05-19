@@ -30,9 +30,9 @@ from typing import Optional, Tuple, Union
 import albumentations as A
 import cv2
 
-from src.data.base import AnomalibDataModule, AnomalibDataset
-from src.data.task_type import TaskType
-from src.data.utils import (
+from anomalib_extend.data.base import AnomalibDataModule, AnomalibDataset
+from anomalib_extend.data.task_type import TaskType
+from anomalib_extend.data.utils import (
     DownloadInfo,
     InputNormalizationMethod,
     Split,
@@ -42,7 +42,7 @@ from src.data.utils import (
     get_transforms,
 )
 
-from .mvtec import make_mvtec_dataset
+from anomalib_extend.data.mvtec import make_mvtec_dataset
 
 logger = logging.getLogger(__name__)
 
