@@ -10,8 +10,8 @@ from typing import Tuple
 from pytorch_lightning import Callback
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 
-from anomalib.deploy import ExportMode, export
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.deploy import ExportMode, export
+from anomalib_extend.models.components import AnomalyModule
 
 logger = logging.getLogger(__name__)
 

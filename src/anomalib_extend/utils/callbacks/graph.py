@@ -7,7 +7,7 @@ import torch
 from pytorch_lightning import Callback, LightningModule, Trainer
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 
-from anomalib.utils.loggers import (
+from anomalib_extend.utils.loggers import (
     AnomalibCometLogger,
     AnomalibTensorBoardLogger,
     AnomalibWandbLogger,

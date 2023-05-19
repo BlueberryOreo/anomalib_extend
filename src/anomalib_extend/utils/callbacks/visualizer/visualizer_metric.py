@@ -10,7 +10,7 @@ import pytorch_lightning as pl
 from matplotlib import pyplot as plt
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.models.components import AnomalyModule
 
 from .visualizer_base import BaseVisualizerCallback
 

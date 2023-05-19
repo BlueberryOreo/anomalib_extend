@@ -10,7 +10,7 @@ import torch
 from pytorch_lightning import Callback, Trainer
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.models.components import AnomalyModule
 
 logger = logging.getLogger(__name__)
 

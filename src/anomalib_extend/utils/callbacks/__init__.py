@@ -14,7 +14,7 @@ from jsonargparse.namespace import Namespace
 from omegaconf import DictConfig, ListConfig, OmegaConf
 from pytorch_lightning.callbacks import Callback, ModelCheckpoint
 
-from anomalib.deploy import ExportMode
+from anomalib_extend.deploy import ExportMode
 
 from .cdf_normalization import CdfNormalizationCallback
 from .graph import GraphLogger

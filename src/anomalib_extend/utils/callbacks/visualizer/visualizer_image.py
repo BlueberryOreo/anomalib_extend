@@ -11,7 +11,7 @@ import pytorch_lightning as pl
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 from pytorch_lightning.utilities.types import STEP_OUTPUT
 
-from anomalib.models.components import AnomalyModule
+from anomalib_extend.models.components import AnomalyModule
 
 from .visualizer_base import BaseVisualizerCallback
 

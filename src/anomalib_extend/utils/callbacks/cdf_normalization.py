@@ -12,10 +12,10 @@ from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 from pytorch_lightning.utilities.types import STEP_OUTPUT
 from torch.distributions import LogNormal
 
-from anomalib.models import get_model
-from anomalib.models.components import AnomalyModule
-from anomalib.post_processing.normalization.cdf import normalize, standardize
-from anomalib.utils.metrics import AnomalyScoreDistribution
+from anomalib_extend.models import get_model
+from anomalib_extend.models.components import AnomalyModule
+from anomalib_extend.post_processing.normalization.cdf import normalize, standardize
+from anomalib_extend.utils.metrics import AnomalyScoreDistribution
 
 logger = logging.getLogger(__name__)
 
