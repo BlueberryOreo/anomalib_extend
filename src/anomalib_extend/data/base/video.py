@@ -8,7 +8,7 @@ import torch
 from pandas import DataFrame
 from torch import Tensor
 
-from .data.base.dataloader import AnomalibDataModule
+from .dataloader import AnomalibDataModule
 from anomalib_extend.data.base.dataset import AnomalibDataset
 from anomalib_extend.data.task_type import TaskType
 from anomalib_extend.data.utils import ValSplitMode, masks_to_boxes
