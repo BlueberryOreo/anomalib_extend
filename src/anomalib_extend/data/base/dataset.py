@@ -77,7 +77,7 @@ class AnomalibDataset(Dataset, ABC):
     @property
     def samples(self) -> DataFrame:
         """Get the samples dataframe."""
-        if not self.is_setup():
+        if not self.is_setup:
             raise RuntimeError("Dataset is not set up yet. Call setup() first.")
         return self._samples
 
@@ -113,12 +113,12 @@ class AnomalibDataset(Dataset, ABC):
         raise NotImplementedError("The condition is few shot but the enlarge_dataset() method is not implemented.")
 
     def setup(self) -> None:
-        if not self.is_setup():
+        if not self.is_setup:
             self._setup()
             if self.shot_type == ShotType.FEW_SHOT:
                 # do something to enlarge the dataset
                 self.enlarge_dataset()
-        assert self.is_setup(), "setup() should set self._samples"
+        assert self.is_setup, "setup() should set self._samples"
 
     def __getitem__(self, index: int):
         """Get dataset item for the index ``index``.

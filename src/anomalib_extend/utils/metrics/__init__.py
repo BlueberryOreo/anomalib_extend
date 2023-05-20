@@ -36,7 +36,7 @@ def metric_collection_from_names(metric_names: List[str], prefix: Optional[str])
     Returns:
         AnomalibMetricCollection: Collection of metrics.
     """
-    metrics_module = importlib.import_module("anomalib.utils.metrics")
+    metrics_module = importlib.import_module("anomalib_extend.utils.metrics")
     metrics = AnomalibMetricCollection([], prefix=prefix)
     for metric_name in metric_names:
         if hasattr(metrics_module, metric_name):
