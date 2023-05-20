@@ -1,7 +1,7 @@
 dataset:
   name: mvtec
   format: mvtec
-  path: ./datasets/MVTec
+  path: E:\Progress\AnomalyDetection\dataset\MVTec
   task: segmentation
   category: bottle
   train_batch_size: 32
@@ -9,7 +9,7 @@ dataset:
   num_workers: 8
   shot_type: full_shot
   image_size: 256
-  center_crop: null
+  center_crop: 223
   normalization: imagenet
   transform_config:
     train: null

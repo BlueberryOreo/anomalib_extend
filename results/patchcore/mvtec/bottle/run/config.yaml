@@ -1,7 +1,7 @@
 dataset:
   name: mvtec
   format: mvtec
-  path: ./datasets/MVTec
+  path: E:\Progress\AnomalyDetection\dataset\MVTec
   task: segmentation
   category: bottle
   train_batch_size: 32
@@ -11,7 +11,9 @@ dataset:
   image_size:
   - 256
   - 256
-  center_crop: null
+  center_crop:
+  - 223
+  - 223
   normalization: imagenet
   transform_config:
     train: null
@@ -27,6 +29,7 @@ dataset:
     remove_border_count: 0
     use_random_tiling: false
     random_tile_count: 16
+  eval_batch_size: 32
 model:
   name: patchcore
   backbone: wide_resnet50_2
@@ -38,8 +41,8 @@ model:
   num_neighbors: 9
   normalization_method: min_max
   input_size:
-  - 256
-  - 256
+  - 223
+  - 223
 metrics:
   image:
   - F1Score
