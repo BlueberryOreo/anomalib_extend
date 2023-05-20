@@ -254,7 +254,7 @@ class MVTec(AnomalibDataModule):
         )
 
         self.test_data = MVTecDataset(
-            task=task, shot_type=shot_type
+            task=task, transform=transform_eval, split=Split.TEST, root=root, category=category, shot_type=shot_type
         )
     
     def prepare_data(self) -> None:

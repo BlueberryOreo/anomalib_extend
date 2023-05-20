@@ -51,7 +51,7 @@ def get_datamodule(config: Union[DictConfig, ListConfig]) -> AnomalibDataModule:
             eval_batch_size=config.dataset.eval_batch_size,
             num_workers=config.dataset.num_workers,
             task=config.dataset.task,
-            shot_type=config.shot_type,
+            shot_type=config.dataset.shot_type,
             transform_config_train=config.dataset.transform_config.train,
             transform_config_eval=config.dataset.transform_config.eval,
             test_split_mode=config.dataset.test_split_mode,

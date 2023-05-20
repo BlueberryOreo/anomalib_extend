@@ -14,7 +14,7 @@ import warnings
 
 from pytorch_lightning import Trainer, seed_everything
 
-from config import get_configurable_parameters
+from anomalib_extend.config import get_configurable_parameters
 from anomalib_extend.data import get_datamodule
 from anomalib_extend.data.utils import TestSplitMode
 from anomalib_extend.models import get_model
