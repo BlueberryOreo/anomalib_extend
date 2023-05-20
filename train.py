@@ -33,7 +33,7 @@ def get_args() -> Namespace:
     parser = ArgumentParser()
     parser.add_argument("--model", type=str, default="patchcore", help="Name of the algorithm to train/test")
     parser.add_argument("--config", type=str, 
-                        default="E:\\Progress\\AnomalyDetection\\anomalib\\anomalib\\models\\patchcore\\config.yaml",
+                        default="D:\\learn\\courseware\\project\\异常检测\\第三步\\anomalib-main\\src\\anomalib\\models\\patchcore\\config.yaml",
                           help="Path to a model config file")
     parser.add_argument("--log-level", type=str, default="INFO", help="<DEBUG, INFO, WARNING, ERROR>")
 

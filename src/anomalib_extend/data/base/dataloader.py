@@ -147,11 +147,11 @@ class AnomalibDataModule(LightningDataModule, ABC):
     def is_setup(self) -> bool:
         """Check if setup() has been called."""
         # at least one of [train_data, val_data, test_data] should be setup
-        if self.train_data is not None and self.train_data.is_setup():
+        if self.train_data is not None and self.train_data.is_setup:
             return True
-        elif self.val_data is not None and self.val_data.is_setup():
+        elif self.val_data is not None and self.val_data.is_setup:
             return True
-        elif self.test_data is not None and self.test_data.is_setup():
+        elif self.test_data is not None and self.test_data.is_setup:
             return True
         return False
     

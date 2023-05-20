@@ -99,7 +99,7 @@ def get_model(config: Union[DictConfig, ListConfig]) -> AnomalyModule:
     model: AnomalyModule
 
     if config.model.name in model_list:
-        module = import_module(f"anomalib.models.{config.model.name}")
+        module = import_module(f"anomalib_extend.models.unsupervised.{config.model.name}")
         model = getattr(module, f"{_snake_to_pascal_case(config.model.name)}Lightning")(config)
 
     else:
