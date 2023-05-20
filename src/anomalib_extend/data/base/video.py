@@ -8,11 +8,11 @@ import torch
 from pandas import DataFrame
 from torch import Tensor
 
-from src.data.base.dataloader import AnomalibDataModule
-from src.data.base.dataset import AnomalibDataset
-from src.data.task_type import TaskType
-from src.data.utils import ValSplitMode, masks_to_boxes
-from src.data.utils.video import ClipsIndexer
+from .dataloader import AnomalibDataModule
+from anomalib_extend.data.base.dataset import AnomalibDataset
+from anomalib_extend.data.task_type import TaskType
+from anomalib_extend.data.utils import ValSplitMode, masks_to_boxes
+from anomalib_extend.data.utils.video import ClipsIndexer
 
 
 class AnomalibVideoDataset(AnomalibDataset, ABC):

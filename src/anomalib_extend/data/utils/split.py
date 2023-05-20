@@ -21,7 +21,7 @@ from typing import TYPE_CHECKING, List, Optional, Sequence, Tuple, Union
 import torch
 
 if TYPE_CHECKING:
-    from src.data import AnomalibDataset
+    from anomalib_extend.data import AnomalibDataset
 
 
 class Split(str, Enum):

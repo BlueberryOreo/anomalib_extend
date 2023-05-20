@@ -11,9 +11,9 @@ from pytorch_lightning import Callback
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 from pytorch_lightning.utilities.types import STEP_OUTPUT
 
-from anomalib.models.components import AnomalyModule
-from anomalib.post_processing.normalization.min_max import normalize
-from anomalib.utils.metrics import MinMax
+from anomalib_extend.models.components import AnomalyModule
+from anomalib_extend.post_processing.normalization.min_max import normalize
+from anomalib_extend.utils.metrics import MinMax
 
 
 @CALLBACK_REGISTRY

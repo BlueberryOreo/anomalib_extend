@@ -13,7 +13,7 @@ from nncf.torch import register_default_init_args
 from pytorch_lightning import Callback
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 
-from anomalib.utils.callbacks.nncf.utils import InitLoader, wrap_nncf_model
+from anomalib_extend.utils.callbacks.nncf.utils import InitLoader, wrap_nncf_model
 
 
 @CALLBACK_REGISTRY

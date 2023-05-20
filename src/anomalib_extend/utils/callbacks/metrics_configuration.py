@@ -11,9 +11,9 @@ import pytorch_lightning as pl
 from pytorch_lightning.callbacks import Callback
 from pytorch_lightning.utilities.cli import CALLBACK_REGISTRY
 
-from anomalib.data import TaskType
-from anomalib.models.components.base.anomaly_module import AnomalyModule
-from anomalib.utils.metrics import create_metric_collection
+from anomalib_extend.data import TaskType
+from anomalib_extend.models.components.base.anomaly_module import AnomalyModule
+from anomalib_extend.utils.metrics import create_metric_collection
 
 logger = logging.getLogger(__name__)
 
