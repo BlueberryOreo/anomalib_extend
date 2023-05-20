@@ -15,11 +15,11 @@ import warnings
 from pytorch_lightning import Trainer, seed_everything
 
 from config import get_configurable_parameters
-from src.anomalib_extend.data import get_datamodule
-from src.anomalib_extend.data.utils import TestSplitMode
-from src.anomalib_extend.models import get_model
-from src.anomalib_extend.utils.callbacks import LoadModelCallback, get_callbacks
-from src.anomalib_extend.utils.loggers import configure_logger, get_experiment_logger
+from anomalib_extend.data import get_datamodule
+from anomalib_extend.data.utils import TestSplitMode
+from anomalib_extend.models import get_model
+from anomalib_extend.utils.callbacks import LoadModelCallback, get_callbacks
+from anomalib_extend.utils.loggers import configure_logger, get_experiment_logger
 
 logger = logging.getLogger("anomalib_extend")
 

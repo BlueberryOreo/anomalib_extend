@@ -10,8 +10,8 @@ import numpy as np
 import torch
 from torch import nn
 
-from anomalib_extend.models.components.freia.framework import SequenceINN
-from anomalib_extend.models.components.freia.modules import AllInOneBlock
+from FrEIA.framework import SequenceINN
+from FrEIA.modules import AllInOneBlock
 
 logger = logging.getLogger(__name__)
 
