@@ -31,9 +31,9 @@ def get_args() -> Namespace:
         Namespace: List of arguments.
     """
     parser = ArgumentParser()
-    parser.add_argument("--model", type=str, default="reverse_distillation", help="Name of the algorithm to train/test")
+    parser.add_argument("--model", type=str, default="AutoEncoder", help="Name of the algorithm to train/test")
     parser.add_argument("--config", type=str, 
-                        default="D:\\learn\\courseware\\project\\异常检测\\第三步\\github\\anomalib_extend\\src\\anomalib_extend\\models\\unsupervised\\reverse_distillation\\config.yaml",
+                        default="D:\\learn\\courseware\\project\\异常检测\\第三步\\github\\anomalib_extend\\src\\anomalib_extend\\models\\unsupervised\\AutoEncoder\\config.yaml",
                           help="Path to a model config file")
     parser.add_argument("--log-level", type=str, default="INFO", help="<DEBUG, INFO, WARNING, ERROR>")
 

@@ -8,9 +8,16 @@ dataset:
   train_batch_size: 8
   test_batch_size: 8
   num_workers: 8
+  shot_type: full_shot
+  normalization: imagenet # data distribution to which the images will be normalized: [none, imagenet]
+  center_crop: null # dimensions to which images are center-cropped after resizing (optional)
   transform_config:
     train: null
     val: null
+  test_split_mode: from_dir # options: [from_dir, synthetic]
+  test_split_ratio: 0.2 # fraction of train images held out testing (usage depends on test_split_mode)
+  val_split_mode: same_as_test # options: [same_as_test, from_test, synthetic]
+  val_split_ratio: 0.5 # fraction of train/test images held out for validation (usage depends on val_split_mode)
   create_validation_set: false
 
 model:
