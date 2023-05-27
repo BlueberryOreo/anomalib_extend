@@ -1,12 +1,12 @@
 dataset:
   name: mvtec
   format: mvtec
-  path: D:\learn\courseware\project\异常检测\第二步\anomalib\datasets\MVTec
+  path: ./datasets/MVTec
   task: segmentation
   category: bottle
-  train_batch_size: 32
-  test_batch_size: 32
-  num_workers: 8
+  train_batch_size: 16
+  test_batch_size: 16
+  num_workers: 1
   shot_type: full_shot
   image_size: 256
   center_crop: 224

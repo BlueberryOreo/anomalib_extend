@@ -8,9 +8,9 @@ results.
 # Copyright (C) 2022 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-from argparse import ArgumentParser, Namespace
 import logging
 import warnings
+from argparse import ArgumentParser, Namespace
 
 from pytorch_lightning import Trainer, seed_everything
 
@@ -31,10 +31,10 @@ def get_args() -> Namespace:
         Namespace: List of arguments.
     """
     parser = ArgumentParser()
-    parser.add_argument("--model", type=str, default="sos", help="Name of the algorithm to train/test")
-    parser.add_argument("--config", type=str, 
-                        default="D:\\learn\\courseware\\project\\异常检测\\第三步\\github\\anomalib_extend\\src\\anomalib_extend\\models\\unsupervised\\sos\\config.yaml",
-                          help="Path to a model config file")
+    parser.add_argument("--model", type=str, default="padim", help="Name of the algorithm to train/test")
+    parser.add_argument("--config", type=str, required=False,
+                        default=".\\src\\anomalib_extend\\models\\unsupervised\\padim\\config.yaml",
+                        help="Path to a model config file")
     parser.add_argument("--log-level", type=str, default="INFO", help="<DEBUG, INFO, WARNING, ERROR>")
 
     args = parser.parse_args()
@@ -44,13 +44,15 @@ def get_args() -> Namespace:
 def train():
     """Train an anomaly classification or segmentation model based on a provided configuration file."""
     args = get_args()
+    configure_logger(level=args.log_level)
+
     if args.log_level == "ERROR":
         warnings.filterwarnings("ignore")
 
     config = get_configurable_parameters(model_name=args.model, config_path=args.config)
     if config.project.get("seed") is not None:
         seed_everything(config.project.seed)
-    
+
     datamodule = get_datamodule(config)
     model = get_model(config)
     experiment_logger = get_experiment_logger(config)
@@ -71,5 +73,5 @@ def train():
         trainer.test(model=model, datamodule=datamodule)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     train()
