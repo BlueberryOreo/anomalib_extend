@@ -13,35 +13,43 @@ from torch import load
 
 from .components import AnomalyModule
 from .unsupervised import (
+    AutoEncoder,
     Cflow,
+    Cof,
     Dfkde,
     Dfm,
     Draem,
     Fastflow,
     Ganomaly,
+    Lof,
+    OneClassSvm,
     Padim,
     Patchcore,
-    ReverseDistillation,
-    Stfpm,
     Pca,
+    ReverseDistillation,
+    Sos,
+    Stfpm,
+    ThreeSigma,
 )
 
 __all__ = [
+    "AutoEncoder",
     "Cflow",
-    "Csflow",
+    "Cof",
     "Dfkde",
     "Dfm",
     "Draem",
     "Fastflow",
     "Ganomaly",
+    "Lof",
+    "OneClassSvm",
     "Padim",
     "Patchcore",
+    "Pca",
     "ReverseDistillation",
-    "Rkde",
+    "Sos",
     "Stfpm",
-    "Dbscan",
-    "IForest",
-    "PCA"
+    "ThreeSigma",
 ]
 
 logger = logging.getLogger(__name__)
@@ -80,21 +88,23 @@ def get_model(config: Union[DictConfig, ListConfig]) -> AnomalyModule:
     logger.info("Loading the model.")
 
     model_list: List[str] = [
+        "AutoEncoder",
         "cflow",
-        "csflow",
+        "cof",
         "dfkde",
         "dfm",
         "draem",
         "fastflow",
         "ganomaly",
+        "lof",
+        "OneClassSvm",
         "padim",
         "patchcore",
-        "reverse_distillation",
-        "rkde",
-        "stfpm",
-        "dbscan",
-        "iforest",
         "pca",
+        "reverse_distillation",
+        "sos",
+        "stfpm",
+        "ThreeSigma",
     ]
     model: AnomalyModule
 
